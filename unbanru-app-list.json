@@ -42,7 +42,9 @@
             "com.microsoft.bing",
             "com.microsoft.copilot",
             "com.microsoft.designer",
-            "com.zionhuang.music"
+            "com.zionhuang.music",
+            "app.revanced.android.youtube",
+            "app.revanced.android.gms",
           ]
         }
       ]

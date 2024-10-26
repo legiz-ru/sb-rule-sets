@@ -26,7 +26,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y curl wget git
+          sudo apt install -y curl wget git jq
           bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
       - name: Generate srs
@@ -35,11 +35,17 @@ jobs:
         run: |
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/torrent-clients.srs /home/runner/work/sb-rule-sets/sb-rule-sets/torrent-clients.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-app-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-app-list.json
-         # no-russia-hosts
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/unbanru-app-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/unbanru-app-list.json
+         
+      - name: Generate srs no-russia-hosts
+        env:
+          NO_SKIP: true
+        run: |
          wget -O no-russia-hosts.txt https://github.com/dartraiden/no-russia-hosts/raw/master/hosts.txt
          sing-box rule-set convert --type adguard --output /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.srs no-russia-hosts.txt
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.json
          rm no-russia-hosts.txt
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.srs /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.json
          
           
       - name: Get current date

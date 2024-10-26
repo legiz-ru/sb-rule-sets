@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "type": "logical",
+      "mode": "or",
+      "rules": [
+        {
+          "process_name": [
+            "Discord.exe",
+            "ChatGPT.exe"
+          ]
+        },
+        {
+          "package_name": [
+            "com.discord",
+            "com.facebook.katana",
+            "com.facebook.orca",
+            "com.facebook.lite",
+            "com.facebook.pages.app",
+            "com.facebook.adsmanager",
+            "com.facebook.work",
+            "com.facebook.workchat",
+            "com.facebook.arstudio.player",
+            "com.facebook.stella",
+            "com.facebook.bishop",
+            "com.instagram.android",
+            "com.instagram.barcelona",
+            "com.linkedin.android",
+            "com.linkedin.android.learning",
+            "com.linkedin.android.salesnavigator",
+            "com.linkedin.recruiter",
+            "com.twitter.android",
+            "com.x.xtv",
+            "com.canva.editor",
+            "com.openai.chatgpt",
+            "com.supercell.brawlstars",
+            "ru.fourpda.client",
+            "org.softeg.slartus.forpdaplus",
+            "com.mcdonalds.mobileapp",
+            "sinet.startup.inDriver",
+            "com.microsoft.bing",
+            "com.microsoft.copilot",
+            "com.microsoft.designer",
+            "com.zionhuang.music"
+          ]
+        }
+      ]
+    }
+  ]
+}

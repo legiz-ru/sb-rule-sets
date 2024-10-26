@@ -44,7 +44,8 @@
             "com.microsoft.designer",
             "com.zionhuang.music",
             "app.revanced.android.youtube",
-            "app.revanced.android.gms",
+            "com.patreon.android",
+            "com.soundcloud.android"
           ]
         }
       ]

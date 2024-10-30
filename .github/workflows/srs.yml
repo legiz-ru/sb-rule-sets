@@ -46,7 +46,16 @@ jobs:
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.json
          rm no-russia-hosts.txt
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.srs /home/runner/work/sb-rule-sets/sb-rule-sets/no-russia-hosts.json
-         
+
+      - name: Download and Extract generate-geoip-geosite
+        run: |
+          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/Dunamis4tw/generate-geoip-geosite/releases/latest | grep "generate-geoip-geosite.*linux-amd64.tar.gz" | grep "browser_download_url" | cut -d '"' -f 4)
+          ARCHIVE_NAME=${DOWNLOAD_URL##*/}
+          wget "$DOWNLOAD_URL"
+          tar -xf "$ARCHIVE_NAME"
+          rm "$ARCHIVE_NAME"
+          chmod +x generate-geoip-geosite
+          
       - name: Generate srs itdoginfo-allow-domains-inside-russia without .ua domain_suffix
         env:
           NO_SKIP: true
@@ -56,7 +65,11 @@ jobs:
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
          rm inside-raw.txt
          jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json
-         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json         
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json 
+         
+      - name: Delete generate-geoip-geosite tool
+        run: |
+          rm -f /home/runner/work/RuRulesets/RuRulesets/generate-geoip-geosite 
           
       - name: Get current date
         id: date

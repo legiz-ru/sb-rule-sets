@@ -71,7 +71,7 @@ jobs:
           }
           ]
           EOF
-          ./generate-geoip-geosite -s antifilter.json -i ./antifilter -o ./antifilter --gen-rule-set-srs
+          ./generate-geoip-geosite -s Russia-domains-inside.json -i ./ -o ./ --gen-rule-set-srs
           # sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
           # rm inside-raw.lst
           # jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json

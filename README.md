@@ -180,6 +180,68 @@ proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/unbanru-app-list.
 
 </details>
 
+## itdoginfo-inside-russia
+This rule-set generated from [this domain list](https://github.com/itdoginfo/allow-domains/blob/main/src/Russia-domains-inside.lst)
+
+<details>
+  <summary>json source</summary>
+  
+```json
+{
+  "route": {
+    "rules": [
+      {
+        "rule_set": "itdoginfo-inside-russia",
+        "outbound": "proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "itdoginfo-inside-russia",
+        "format": "source",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.json"
+      }
+    ]
+  }
+}
+```
+
+</details>
+<details>
+  <summary>binary rule-set .srs</summary>
+  
+```json
+{
+  "route": {
+    "rules": [
+      {
+        "rule_set": "itdoginfo-inside-russia",
+        "outbound": "proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "itdoginfo-inside-russia",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.srs"
+      }
+    ]
+  }
+}
+```
+
+</details>
+<details>
+  <summary>add to vpnbot</summary>
+  
+```shell
+proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.srs
+```
+
+</details>
+
 ## no-russia-hosts
 This rule-set generated from [this domain list](https://github.com/dartraiden/no-russia-hosts)
 

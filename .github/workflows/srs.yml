@@ -74,7 +74,9 @@ jobs:
           ./generate-geoip-geosite -s Russia-domains-inside.json -i ./ -o ./ --gen-rule-set-srs
           mv ruleset-domain-itdoginfo_inside_russia.srs itdoginfo-inside-russia.srs
           sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
-          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json 
+          jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json
+          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
+          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
          
       - name: Delete generate-geoip-geosite tool
         run: |

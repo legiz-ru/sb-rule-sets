@@ -72,8 +72,7 @@ jobs:
           ]
           EOF
           ./generate-geoip-geosite -s Russia-domains-inside.json -i ./ -o ./ --gen-rule-set-srs
-          # sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
-          # rm inside-raw.lst
+          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/ruleset-domain-itdoginfo_inside_russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/ruleset-domain-itdoginfo_inside_russia.json
           # jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json
           # sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json 
          
@@ -81,7 +80,7 @@ jobs:
         run: |
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/Russia-domains-inside.json
-          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/include-domain-itdoginfo-allow-domains-inside-russia.lst
+          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/include-domain-itdoginfo_inside_russia.lst
           
       - name: Get current date
         id: date

@@ -63,7 +63,7 @@ jobs:
          wget -O inside-raw.lst https://github.com/itdoginfo/allow-domains/raw/main/Russia/inside-raw.lst
          sing-box rule-set convert --type adguard --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs inside-raw.lst
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
-         rm inside-raw.txt
+         rm inside-raw.lst
          jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json 
          

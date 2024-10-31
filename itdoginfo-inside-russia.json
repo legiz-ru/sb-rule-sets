@@ -2,7 +2,7 @@
   "version": 1,
   "rules": [
     {
-      "domain": [
+      "domain_suffix": [
         "24.kg",
         "4freerussia.org",
         "4pda.to",

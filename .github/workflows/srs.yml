@@ -67,7 +67,7 @@ jobs:
           {
             "url": "https://github.com/itdoginfo/allow-domains/raw/main/src/Russia-domains-inside.lst",
             "contentType": "DefaultList",
-            "category": "itdoginfo-allow-domains-inside-russia"
+            "category": "itdoginfo_inside_russia"
           }
           ]
           EOF
@@ -79,7 +79,9 @@ jobs:
          
       - name: Delete generate-geoip-geosite tool
         run: |
-          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite 
+          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite
+          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/Russia-domains-inside.json
+          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/include-domain-itdoginfo-allow-domains-inside-russia.lst
           
       - name: Get current date
         id: date

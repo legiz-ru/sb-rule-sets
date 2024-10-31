@@ -49,6 +49,7 @@ jobs:
 
       - name: Download and Extract generate-geoip-geosite
         run: |
+          cd /home/runner/work/sb-rule-sets/sb-rule-sets/
           DOWNLOAD_URL=$(curl -s https://api.github.com/repos/Dunamis4tw/generate-geoip-geosite/releases/latest | grep "generate-geoip-geosite.*linux-amd64.tar.gz" | grep "browser_download_url" | cut -d '"' -f 4)
           ARCHIVE_NAME=${DOWNLOAD_URL##*/}
           wget "$DOWNLOAD_URL"
@@ -60,16 +61,25 @@ jobs:
         env:
           NO_SKIP: true
         run: |
-         wget -O Russia-domains-inside.lst https://github.com/itdoginfo/allow-domains/raw/main/src/Russia-domains-inside.lst
-         sing-box rule-set convert --type adguard --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs Russia-domains-inside.lst
-         sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
-         rm inside-raw.lst
-         jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json
-         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json 
+          cd /home/runner/work/sb-rule-sets/sb-rule-sets/
+          cat << EOF > Russia-domains-inside.json
+          [
+          {
+            "url": "https://github.com/itdoginfo/allow-domains/raw/main/src/Russia-domains-inside.lst",
+            "contentType": "DefaultList",
+            "category": "itdoginfo-allow-domains-inside-russia"
+          }
+          ]
+          EOF
+          ./generate-geoip-geosite -s antifilter.json -i ./antifilter -o ./antifilter --gen-rule-set-srs
+          # sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json
+          # rm inside-raw.lst
+          # jq '.rules[0].domain |= map(select(. != ".ua")) | .rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-allow-domains-inside-russia.json > temp.json && mv temp.json itdoginfo-allow-domains-inside-russia.json
+          # sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-allow-domains-inside-russia.json 
          
       - name: Delete generate-geoip-geosite tool
         run: |
-          rm -f /home/runner/work/RuRulesets/RuRulesets/generate-geoip-geosite 
+          rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite 
           
       - name: Get current date
         id: date

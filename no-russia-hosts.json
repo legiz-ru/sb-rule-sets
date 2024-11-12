@@ -2,7 +2,7 @@
   "version": 1,
   "rules": [
     {
-      "domain": [
+      "domain_suffix": [
         "4pda.to",
         "activestate.com",
         "acurapartswarehouse.com",

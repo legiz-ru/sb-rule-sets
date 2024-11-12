@@ -84,7 +84,7 @@ jobs:
         env:
           NO_SKIP: true
         run: |
-         jq -s 'reduce .[] as $item ({}; .version = $item.version | .rules = [if .rules then .rules[0].domain_suffix += $item.rules[0].domain_suffix | unique else $item.rules end])' itdoginfo-inside-russia.json no-russia-hosts.json > ru-bundle.json
+         jq -s '{version: .[0].version, rules: [{domain_suffix: (.[0].rules[0].domain_suffix + .[1].rules[0].domain_suffix) | unique}]}' itdoginfo-inside-russia.json no-russia-hosts.json > ru-bundle.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          

@@ -1,5 +1,66 @@
 # sb-rule-sets
 
+## ru-bundle (itdoginfo-inside-russia+no-russia-hosts)
+### NOT PRODUCTION RULESET, MAYBE NOT STABLE
+<details>
+  <summary>json source</summary>
+  
+```json
+{
+  "route": {
+    "rules": [
+      {
+        "rule_set": "ru-bundle",
+        "outbound": "proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "ru-bundle",
+        "format": "source",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.json"
+      }
+    ]
+  }
+}
+```
+
+</details>
+<details>
+  <summary>binary rule-set .srs</summary>
+  
+```json
+{
+  "route": {
+    "rules": [
+      {
+        "rule_set": "ru-bundle",
+        "outbound": "proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "ru-bundle",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+      }
+    ]
+  }
+}
+```
+
+</details>
+<details>
+  <summary>add to vpnbot</summary>
+  
+```shell
+proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
+```
+
+</details>
+
 ## torrent-clients
 <details>
   <summary>json source</summary>

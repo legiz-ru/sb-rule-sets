@@ -67,7 +67,7 @@ jobs:
           cat << EOF > Russia-domains-inside.json
           [
           {
-            "url": "https://github.com/itdoginfo/allow-domains/raw/main/src/Russia-domains-inside.lst",
+            "url": "https://github.com/itdoginfo/allow-domains/raw/main/Russia/inside-raw.lst",
             "contentType": "DefaultList",
             "category": "itdoginfo_inside_russia"
           }
@@ -79,6 +79,14 @@ jobs:
           jq '.rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-inside-russia.json > temp.json && mv temp.json itdoginfo-inside-russia.json
           sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
           sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
+          
+      - name: Generate bundle itdoginfo-inside-russia+no-russia-hosts
+        env:
+          NO_SKIP: true
+        run: |
+         jq -s 'reduce .[] as $item ({}; .version = $item.version | .rules = [if .rules then .rules[0].domain_suffix += $item.rules[0].domain_suffix | unique else $item.rules end])' itdoginfo-inside-russia.json no-russia-hosts.json > ru-bundle.json
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
+         sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          
       - name: Delete generate-geoip-geosite tool
         run: |

@@ -109,6 +109,7 @@ jobs:
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/Russia-domains-inside.json
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/include-domain-itdoginfo_inside_russia.lst
+          rm antifilter-community.lst | rm antifilter-community.json
           
       - name: Get current date
         id: date

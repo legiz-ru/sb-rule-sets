@@ -36,6 +36,16 @@ jobs:
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/torrent-clients.srs /home/runner/work/sb-rule-sets/sb-rule-sets/torrent-clients.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-app-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-app-list.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/unbanru-app-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/unbanru-app-list.json
+
+      - name: Generate srs discord-voice-ip-list
+        env:
+          NO_SKIP: true
+        run: |
+         wget -O discord-voice-ip-list.txt https://github.com/GhostRooter0953/discord-voice-ips/raw/master/voice_domains/discord-voice-ip-list
+         cat discord-voice-ip-list.txt | jq -R -s '{"version": 1,"rules": [{"ip_cidr": split("\n") | map(select(length > 0)) | map(. + "/32")}]}' > discord-voice-ip-list.json
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.json
+         rm discord-voice-ip-list.txt
+         sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.json
          
       - name: Generate srs no-russia-hosts
         env:

@@ -1,7 +1,6 @@
 # sb-rule-sets
 
-## ru-bundle (itdoginfo-inside-russia+no-russia-hosts)
-### NOT PRODUCTION RULESET, MAYBE NOT STABLE
+## ru-bundle (itdoginfo-inside-russia+no-russia-hosts+antifilter-community)
 <details>
   <summary>json source</summary>
   

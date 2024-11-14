@@ -89,20 +89,27 @@ jobs:
           jq '.rules[0] |= with_entries(if .key == "domain" then .key = "domain_suffix" else . end)' itdoginfo-inside-russia.json > temp.json && mv temp.json itdoginfo-inside-russia.json
           sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
           sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/itdoginfo-inside-russia.json
-          
-      - name: Generate bundle itdoginfo-inside-russia+no-russia-hosts
+
+      - name: Download antifilter-community and generate sing-box json
         env:
           NO_SKIP: true
         run: |
-         jq -s '{version: .[0].version, rules: [{domain_suffix: (.[0].rules[0].domain_suffix + .[1].rules[0].domain_suffix) | unique}]}' itdoginfo-inside-russia.json no-russia-hosts.json > ru-bundle.json
+         wget -O antifilter-community.lst https://community.antifilter.download/list/domains.lst && jq -R -s '{"version": 1, "rules": [{"domain_suffix": split("\n") | map(select(. != "" and . != null))}]}' antifilter-community.lst > antifilter-community.json
+          
+      - name: Generate ru-bundle itdoginfo-inside-russia+no-russia-hosts+antifilter-community
+        env:
+          NO_SKIP: true
+        run: |
+         jq -s '{version: .[0].version, rules: [{domain_suffix: (.[0].rules[0].domain_suffix + .[1].rules[0].domain_suffix + .[2].rules[0].domain_suffix) | unique}]}' itdoginfo-inside-russia.json no-russia-hosts.json antifilter-community.json > ru-bundle.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          
-      - name: Delete generate-geoip-geosite tool
+      - name: Delete generate-geoip-geosite tool + antifilter-community
         run: |
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/generate-geoip-geosite
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/Russia-domains-inside.json
           rm -f /home/runner/work/sb-rule-sets/sb-rule-sets/include-domain-itdoginfo_inside_russia.lst
+          rm antifilter-community.lst | rm antifilter-community.json
           
       - name: Get current date
         id: date

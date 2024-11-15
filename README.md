@@ -71,6 +71,8 @@ https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.lst
 
 </details>
 
+xray geosite .dat? use this repo: [zkeen-domains](https://github.com/jameszeroX/zkeen-domains/)
+
 ## torrent-clients
 <details>
   <summary>json source</summary>

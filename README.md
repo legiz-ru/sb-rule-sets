@@ -1,6 +1,7 @@
 # sb-rule-sets
 
-## ru-bundle (itdoginfo-inside-russia+no-russia-hosts+antifilter-community)
+## ru-bundle
+include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) + [no-russia-hosts](https://github.com/dartraiden/no-russia-hosts) + [antifilter-community](https://community.antifilter.download/)
 <details>
   <summary>json source</summary>
   
@@ -56,6 +57,16 @@
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
+```
+
+</details>
+
+</details>
+<details>
+  <summary>lst</summary>
+  
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.lst
 ```
 
 </details>

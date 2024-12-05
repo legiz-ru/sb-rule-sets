@@ -101,6 +101,7 @@
             "ru.megafon.mlk",
             "ru.megamarket.marketplace",
             "ru.mes.sputnik",
+            "ru.mes.dnevnik",
             "ru.more.play",
             "ru.mos.app",
             "ru.mos.ed",
@@ -194,10 +195,18 @@
             "ru.yoo.sdk.kassa.payments.example.release",
             "ru.yota.android",
             "ru.zhuck.webapp",
+            "ru.ok.android",
             "team.rtds.checkcontrol",
             "tv.lfstrm.smotreshka",
             "com.apteka.sklad",
-            "youdrive.today"
+            "youdrive.today",
+            "com.kms.free",
+            "ru.paribet",
+            "ru.rosbank.android.beta",
+            "ru.beeline.services",
+            "ru.beeline.cloud",
+            "ru.beeline.tve.android",
+            "ru.otpbank.mobile"
           ]
         }
       ]

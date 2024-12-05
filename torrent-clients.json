@@ -98,7 +98,8 @@
             "idm.internet.download.manager",
             "com.bitcomet.android",
             "org.equeim.tremotesf",
-            "ru.yourok.torrserve"
+            "ru.yourok.torrserve",
+            "com.gianlu.aria2app"
           ]
         }
       ]

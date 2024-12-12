@@ -100,7 +100,7 @@ jobs:
         env:
           NO_SKIP: true
         run: |
-         jq -s '{version: .[0].version, rules: [{domain_suffix: (.[0].rules[0].domain_suffix + .[1].rules[0].domain_suffix + .[2].rules[0].domain_suffix) | unique}]}' itdoginfo-inside-russia.json no-russia-hosts.json antifilter-community.json > ru-bundle.json
+         jq -s '{version: .[0].version, rules: [{domain_suffix: (.[0].rules[0].domain_suffix + .[1].rules[0].domain_suffix + .[2].rules[0].domain_suffix + ["ipwho.is"]) | unique}]}' itdoginfo-inside-russia.json no-russia-hosts.json antifilter-community.json > ru-bundle.json
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/ru-bundle.json
          jq -r '.rules[].domain_suffix[]' ru-bundle.json > ru-bundle.lst

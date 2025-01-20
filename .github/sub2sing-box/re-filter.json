@@ -19,7 +19,8 @@
     "rules": [
       {
         "rule_set": [
-          "ru-bundle"
+          "refilter_domains",
+          "refilter_ipsum"
         ],
         "server": "dns-remote"
       }
@@ -63,17 +64,24 @@
       },
       {
         "rule_set": [
-          "ru-bundle"
+          "refilter_domains",
+          "refilter_ipsum"
         ],
         "outbound": "default"
       }
     ],
     "rule_set": [
       {
+        "tag": "refilter_domains",
         "type": "remote",
-        "tag": "ru-bundle",
         "format": "binary",
-        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-domain-refilter_domains.srs",
+      },
+      {
+        "tag": "refilter_ipsum",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-ip-refilter_ipsum.srs",
       }
     ],
     "auto_detect_interface": true,

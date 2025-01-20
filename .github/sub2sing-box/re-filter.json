@@ -18,7 +18,15 @@
     ],
     "rules": [
       {
-        "rule_set": [ "refilter_domains", "refilter_ipsum" ],
+        "rule_set": [
+          "refilter-domains"
+        ],
+        "server": "dns-remote"
+      },
+      {
+        "rule_set": [
+          "refilter-ipsum"
+        ],
         "server": "dns-remote"
       }
     ],
@@ -60,24 +68,30 @@
         "action": "hijack-dns"
       },
       {
-        "rule_set": [ "refilter_domains", "refilter_ipsum" ],
+        "rule_set": [
+          "refilter-domains"
+        ],
+        "outbound": "default"
+      }
+      {
+        "rule_set": [
+          "refilter-ipsum"
+        ],
         "outbound": "default"
       }
     ],
     "rule_set": [
       {
-        "tag": "refilter_domains",
+        "tag": "refilter-domains",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-domain-refilter_domains.srs",
-        "download_detour": "direct"
+        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-domain-refilter_domains.srs"
       },
       {
-        "tag": "refilter_ipsum",
+        "tag": "refilter-ipsum",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-ip-refilter_ipsum.srs",
-        "download_detour": "direct"
+        "url": "https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-ip-refilter_ipsum.srs"
       }
     ],
     "auto_detect_interface": true,

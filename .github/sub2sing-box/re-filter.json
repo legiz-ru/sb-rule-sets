@@ -72,7 +72,7 @@
           "refilter-domains"
         ],
         "outbound": "default"
-      }
+      },
       {
         "rule_set": [
           "refilter-ipsum"

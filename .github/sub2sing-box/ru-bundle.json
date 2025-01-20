@@ -9,7 +9,7 @@
         "tag": "dns-remote",
         "address": "tls://1.1.1.1",
         "address_strategy": "ipv4_only",
-        "detour": "proxy"
+        "detour": "default"
       },
       {
         "tag": "dns-local",
@@ -46,15 +46,11 @@
     },
     {
       "type": "selector",
-      "tag": "proxy",
-      "outbounds": ["\u003call-proxy-tags\u003e", "Fastest"]
-    },
-    {
-      "type": "urltest",
-      "tag": "Fastest",
-      "outbounds": "\u003call-proxy-tags\u003e",
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "15m0s"
+      "tag": "default",
+      "outbounds": [
+        "\u003call-proxy-tags\u003e",
+        "direct"
+      ]
     }
   ],
   "route": {
@@ -70,7 +66,7 @@
         "rule_set": [
           "ru-bundle"
         ],
-        "outbound": "proxy"
+        "outbound": "default"
       }
     ],
     "rule_set": [

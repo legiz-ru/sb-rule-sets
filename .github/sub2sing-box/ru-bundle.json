@@ -48,8 +48,7 @@
       "type": "selector",
       "tag": "default",
       "outbounds": [
-        "\u003call-proxy-tags\u003e",
-        "direct"
+        "\u003call-proxy-tags\u003e"
       ]
     }
   ],

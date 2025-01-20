@@ -47,7 +47,7 @@
     {
       "type": "selector",
       "tag": "proxy",
-      "outbounds": ["\u003call-proxy-tags\u003e", 
+      "outbounds": ["\u003call-proxy-tags\u003e", "Fastest"]
     },
     {
       "type": "urltest",

@@ -48,7 +48,7 @@
       "type": "selector",
       "tag": "default",
       "outbounds": [
-        <all-proxy-tags>
+        "<all-proxy-tags>"
       ]
     }
   ],

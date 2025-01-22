@@ -23,6 +23,7 @@
             "com.icemobile.lenta.prod",
             "com.idamob.tinkoff.android",
             "com.keenetic.kn",
+            "ru.netcraze.app",
             "com.moscowsport",
             "com.premiumbonus.jamm.ramen",
             "com.punicapp.whoosh",
@@ -206,7 +207,11 @@
             "ru.beeline.services",
             "ru.beeline.cloud",
             "ru.beeline.tve.android",
-            "ru.otpbank.mobile"
+            "ru.otpbank.mobile",
+            "biz.growapp.winline",
+            "com.national.lottery",
+            "ru.stoloto.mobile",
+            "ru.bkfon"
           ]
         }
       ]

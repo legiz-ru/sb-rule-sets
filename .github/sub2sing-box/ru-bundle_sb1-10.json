@@ -1,0 +1,88 @@
+{
+  "log": {
+    "level": "fatal",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "tls://1.1.1.1",
+        "address_strategy": "ipv4_only",
+        "detour": "default"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": [
+          "ru-bundle"
+        ],
+        "server": "dns-remote"
+      }
+    ],
+    "final": "dns-local"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "freedom",
+      "stack": "system",
+      "address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true,
+      "sniff_override_destination": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "selector",
+      "tag": "default",
+      "outbounds": [
+        "\u003call-proxy-tags\u003e"
+      ]
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "rule_set": [
+          "ru-bundle"
+        ],
+        "outbound": "default"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "ru-bundle",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+      }
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}

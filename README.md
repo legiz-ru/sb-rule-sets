@@ -1,5 +1,5 @@
+[templates for sub2sing-box](/.github/sub2sing-box/README.md)
 # sb-rule-sets
-
 ## ru-bundle
 include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) + [no-russia-hosts](https://github.com/dartraiden/no-russia-hosts) + [antifilter-community](https://community.antifilter.download/)
 <details>

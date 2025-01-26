@@ -9,7 +9,7 @@ https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle
 
 for sing-box v1.10:
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle_sb1-10.json.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle_sb1-10.json
 ```
 
 </details>

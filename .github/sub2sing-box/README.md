@@ -1,4 +1,9 @@
 # Tempaltes for [sub2sing-box](https://github.com/nitezs/sub2sing-box)
+- you can use hosted version by [legiz](https://sub.legiz.ru/) or by [nitezs](https://singbox.nite07.com/)
+- or you can use selfhosted version
+  - [manually install](https://github.com/nitezs/sub2sing-box?tab=readme-ov-file#docker-%E4%BD%BF%E7%94%A8)
+  - [x-ui-pro by legiz with sub2sing-box](https://github.com/legiz-ru/x-ui-pro/blob/master/README.md#install-x-ui-pro)
+
 <details>
   <summary>ru-bundle (sing-box v1.10+)</summary>
 

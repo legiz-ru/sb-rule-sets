@@ -65,7 +65,8 @@
             "azureus",
             "ktorrent",
             "rtorrent",
-            "tribler"
+            "tribler",
+            "torrserver"
           ]
         },
         {

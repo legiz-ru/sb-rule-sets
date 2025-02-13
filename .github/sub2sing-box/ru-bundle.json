@@ -62,6 +62,14 @@
         "action": "hijack-dns"
       },
       {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "default"
+      },
+      {
         "rule_set": [
           "ru-bundle"
         ],

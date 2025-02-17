@@ -1,0 +1,20 @@
+name: Purge jsDelivr CDN
+
+on:
+  schedule:
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Purge jsDelivr CDN all files
+        run: |
+          for file in $(find . -type f | sed 's|^\./||'); do
+            echo "purge: $file"
+            curl -I "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/${file}"
+          done

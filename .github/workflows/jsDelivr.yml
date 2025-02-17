@@ -2,7 +2,7 @@ name: Purge jsDelivr CDN
 
 on:
   schedule:
-    - cron: '30 0 * * *'
+    - cron: '30 0 * * *'  # Каждый день в 00:30 UTC
   workflow_dispatch:
 
 jobs:
@@ -12,9 +12,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Purge jsDelivr CDN all files
+      - name: Purge jsDelivr CDN for all files
         run: |
-          for file in $(find . -type f | sed 's|^\./||'); do
-            echo "purge: $file"
-            curl -I "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/${file}"
+          for file in $(find . -type f -not -path "./.git/*" | sed 's|^\./||'); do
+            cmd="curl -I \"https://purge.jsdelivr.net/gh/${{ github.repository }}@main/${file}\""
+            echo "Run cmd: ${cmd}"
+            eval ${cmd}
           done

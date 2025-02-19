@@ -19,7 +19,7 @@
     "rules": [
       {
         "rule_set": [
-          "ru-bundle"
+          "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "server": "dns-remote"
       }
@@ -71,7 +71,7 @@
       },
       {
         "rule_set": [
-          "ru-bundle"
+          "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "outbound": "default"
       }
@@ -82,6 +82,18 @@
         "tag": "ru-bundle",
         "format": "binary",
         "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "discord-voice-ip-list",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/discord-voice-ip-list.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "viber_aws_ip",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/viber_aws_ip.srs"
       }
     ],
     "auto_detect_interface": true,

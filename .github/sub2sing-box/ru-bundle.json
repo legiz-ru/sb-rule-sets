@@ -19,6 +19,12 @@
     "rules": [
       {
         "rule_set": [
+          "geosite-whatsapp", "geosite-telegram", "geoip-telegram"
+        ],
+        "server": "dns-local"
+      },
+      {
+        "rule_set": [
           "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "server": "dns-remote"
@@ -71,12 +77,36 @@
       },
       {
         "rule_set": [
+          "geosite-whatsapp", "geosite-telegram", "geoip-telegram"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
           "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "outbound": "default"
       }
     ],
     "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geosite-whatsapp",
+        "format": "binary",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/whatsapp.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-telegram",
+        "format": "binary",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/telegram.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-telegram",
+        "format": "binary",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geoip/telegram.srs"
+      },
       {
         "type": "remote",
         "tag": "ru-bundle",

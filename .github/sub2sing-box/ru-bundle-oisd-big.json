@@ -1,0 +1,162 @@
+{
+    "log": {
+      "level": "fatal",
+      "timestamp": true
+    },
+    "dns": {
+      "servers": [
+        {
+          "tag": "dns-remote",
+          "address": "tls://1.1.1.1",
+          "address_strategy": "ipv4_only",
+          "detour": "default"
+        },
+        {
+          "tag": "dns-local",
+          "address": "local"
+        },
+        {
+          "tag": "dns-block",
+          "address": "rcode://success"
+        }
+      ],
+      "rules": [
+        {
+            "rule_set": [
+              "oisd-big"
+            ],
+            "server": "dns-block",
+            "disable_cache": true
+        },
+        {
+          "rule_set": [
+            "geosite-whatsapp", "geosite-telegram", "geoip-telegram"
+          ],
+          "server": "dns-local"
+        },
+        {
+          "rule_set": [
+            "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
+          ],
+          "server": "dns-remote"
+        }
+      ],
+      "final": "dns-local"
+    },
+    "inbounds": [
+      {
+        "type": "tun",
+        "tag": "tun-in",
+        "interface_name": "freedom",
+        "stack": "system",
+        "address": "172.19.0.1/28",
+        "auto_route": true,
+        "strict_route": true,
+        "sniff": true,
+        "sniff_override_destination": true
+      }
+    ],
+    "outbounds": [
+      {
+        "type": "direct",
+        "tag": "direct"
+      },
+      {
+        "type": "selector",
+        "tag": "default",
+        "outbounds": [
+          "\u003call-proxy-tags\u003e"
+        ]
+      }
+    ],
+    "route": {
+      "rules": [
+        {
+          "action": "sniff"
+        },
+        {
+          "protocol": "dns",
+          "action": "hijack-dns"
+        },
+        {
+          "clash_mode": "Direct",
+          "outbound": "direct"
+        },
+        {
+          "clash_mode": "Global",
+          "outbound": "default"
+        },
+        {
+            "rule_set": [
+              "oisd-big"
+            ],
+            "action": "reject",
+            "method": "drop"
+        },
+        {
+          "rule_set": [
+            "geosite-whatsapp", "geosite-telegram", "geoip-telegram"
+          ],
+          "outbound": "direct"
+        },
+        {
+          "rule_set": [
+            "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
+          ],
+          "outbound": "default"
+        }
+      ],
+      "rule_set": [
+        {
+            "type": "remote",
+            "tag": "oisd-big",
+            "format": "binary",
+            "url": "https://github.com/burjuyz/RuRulesets/raw/main/ruleset-domain-oisd_big.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "geosite-whatsapp",
+          "format": "binary",
+          "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/whatsapp.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "geosite-telegram",
+          "format": "binary",
+          "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/telegram.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "geoip-telegram",
+          "format": "binary",
+          "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geoip/telegram.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "ru-bundle",
+          "format": "binary",
+          "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "discord-voice-ip-list",
+          "format": "binary",
+          "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/discord-voice-ip-list.srs"
+        },
+        {
+          "type": "remote",
+          "tag": "viber_aws_ip",
+          "format": "binary",
+          "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/viber_aws_ip.srs"
+        }
+      ],
+      "auto_detect_interface": true,
+      "override_android_vpn": true
+    },
+    "experimental": {
+      "cache_file": {
+        "enabled": true
+      }
+    }
+  }
+  

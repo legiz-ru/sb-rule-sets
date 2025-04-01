@@ -25,7 +25,7 @@
       },
       {
         "rule_set": [
-          "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
+          "geosite-tiktok", "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "server": "dns-remote"
       }
@@ -83,12 +83,18 @@
       },
       {
         "rule_set": [
-          "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
+          "geosite-tiktok", "ru-bundle", "discord-voice-ip-list", "viber_aws_ip"
         ],
         "outbound": "default"
       }
     ],
     "rule_set": [
+      {
+        "tag": "geosite-tiktok",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs",
+        "type": "remote",
+        "format": "binary"
+      },
       {
         "type": "remote",
         "tag": "geosite-whatsapp",

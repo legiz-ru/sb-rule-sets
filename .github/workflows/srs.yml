@@ -46,6 +46,8 @@ jobs:
          sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.srs /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.json
          rm discord-voice-ip-list.txt
          sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/discord-voice-ip-list.json
+         sing-box rule-set compile --output /home/runner/work/sb-rule-sets/sb-rule-sets/.github/other/discord-voice-ip-list-cidr.srs /home/runner/work/sb-rule-sets/sb-rule-sets/.github/other/discord-voice-ip-list-cidr.json
+         sing-box rule-set decompile /home/runner/work/sb-rule-sets/sb-rule-sets/.github/other/discord-voice-ip-list-cidr.srs --output /home/runner/work/sb-rule-sets/sb-rule-sets/.github/other/discord-voice-ip-list-cidr.json
          
       - name: Generate srs no-russia-hosts
         env:

@@ -54,6 +54,13 @@
       "type": "selector",
       "tag": "default",
       "outbounds": [
+        "⚡️ Auto", "\u003call-proxy-tags\u003e"
+      ]
+    },
+        {
+      "tag": "⚡️ Auto",
+      "type": "urltest",
+      "outbounds": [
         "\u003call-proxy-tags\u003e"
       ]
     }

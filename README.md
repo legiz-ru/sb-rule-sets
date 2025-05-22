@@ -3,7 +3,7 @@
 ## ru-bundle
 include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) + [no-russia-hosts](https://github.com/dartraiden/no-russia-hosts) + [antifilter-community](https://community.antifilter.download/)
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -28,7 +28,7 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -53,7 +53,7 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
@@ -63,7 +63,7 @@ proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
 
 </details>
 <details>
-  <summary>lst</summary>
+  <summary>lst ↓ </summary>
   
 ```shell
 https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.lst
@@ -75,7 +75,7 @@ xray geosite .dat? use this repo: [zkeen-domains](https://github.com/jameszeroX/
 
 ## torrent-clients
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -100,7 +100,7 @@ xray geosite .dat? use this repo: [zkeen-domains](https://github.com/jameszeroX/
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -125,7 +125,7 @@ xray geosite .dat? use this repo: [zkeen-domains](https://github.com/jameszeroX/
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/torrent-clients.srs
@@ -135,7 +135,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/torrent-clients.
 
 ## ru-app-list (android)
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -160,7 +160,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/torrent-clients.
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -185,7 +185,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/torrent-clients.
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-app-list.srs
@@ -195,7 +195,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-app-list.srs
 
 ## unbanru-app-list (android+windows)
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -220,7 +220,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-app-list.srs
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -245,7 +245,7 @@ direct:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-app-list.srs
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/unbanru-app-list.srs
@@ -257,7 +257,7 @@ proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/unbanru-app-list.
 This rule-set generated from [this domain list](https://github.com/itdoginfo/allow-domains/blob/main/src/Russia-domains-inside.lst)
 
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -282,7 +282,7 @@ This rule-set generated from [this domain list](https://github.com/itdoginfo/all
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -307,7 +307,7 @@ This rule-set generated from [this domain list](https://github.com/itdoginfo/all
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.srs
@@ -319,7 +319,7 @@ proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-
 This rule-set generated from [this domain list](https://github.com/dartraiden/no-russia-hosts)
 
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -344,7 +344,7 @@ This rule-set generated from [this domain list](https://github.com/dartraiden/no
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -369,7 +369,7 @@ This rule-set generated from [this domain list](https://github.com/dartraiden/no
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/no-russia-hosts.srs
@@ -381,7 +381,7 @@ proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/no-russia-hosts.s
 This rule-set generated from [this ip list](https://github.com/GhostRooter0953/discord-voice-ips/blob/master/voice_domains/discord-voice-ip-list)
 
 <details>
-  <summary>json source</summary>
+  <summary>json source ↓ </summary>
   
 ```json
 {
@@ -406,7 +406,7 @@ This rule-set generated from [this ip list](https://github.com/GhostRooter0953/d
 
 </details>
 <details>
-  <summary>binary rule-set .srs</summary>
+  <summary>binary rule-set .srs ↓ </summary>
   
 ```json
 {
@@ -431,7 +431,7 @@ This rule-set generated from [this ip list](https://github.com/GhostRooter0953/d
 
 </details>
 <details>
-  <summary>add to vpnbot</summary>
+  <summary>add to vpnbot ↓ </summary>
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/discord-voice-ip-list.srs

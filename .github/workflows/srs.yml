@@ -131,3 +131,11 @@ jobs:
           fetch: --tags --force
           pathspec_error_handling: ignore
           github_token: ${{ secrets.RULESET_TOKEN }}
+
+      - name: Trigger mihomo workflow
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.RULESET_TOKEN }}" \
+            https://api.github.com/repos/legiz-ru/mihomo-rule-sets/dispatches \
+            -d '{"event_type": "trigger-from-sb-rule-sets"}'

@@ -293,7 +293,11 @@
             "ru.tokyocity.tokyocity",
             "com.tseh85",
             "ru.plazius.cofix",
-            "com.avito.android"
+            "com.avito.android",
+            "ru.x5.omni",
+            "ru.tele2.mytele2",
+            "by.advasoft.android.troika.app",
+            "com.octopod.russianpost.client.android"
           ]
         }
       ]

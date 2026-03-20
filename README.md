@@ -1,7 +1,7 @@
 [templates for sub2sing-box](/.github/sub2sing-box/README.md)
 # sb-rule-sets
-## ru-bundle
-include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) + [no-russia-hosts](https://github.com/dartraiden/no-russia-hosts) + [antifilter-community](https://community.antifilter.download/)
+## ru-bundle (with asn block)
+include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) + [no-russia-hosts](https://github.com/dartraiden/no-russia-hosts) + [antifilter-community](https://community.antifilter.download/) + [rknasnblock](https://pastes.io/72-as?syntax=markdown)
 <details>
   <summary>json source ↓ </summary>
   
@@ -12,6 +12,10 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
       {
         "rule_set": "ru-bundle",
         "outbound": "proxy"
+      },
+      {
+        "rule_set": "rknasnblock",
+        "outbound": "proxy"
       }
     ],
     "rule_set": [
@@ -20,6 +24,12 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
         "tag": "ru-bundle",
         "format": "source",
         "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.json"
+      },
+      {
+        "type": "remote",
+        "tag": "rknasnblock",
+        "format": "source",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/rknasnblock.json"
       }
     ]
   }
@@ -37,6 +47,10 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
       {
         "rule_set": "ru-bundle",
         "outbound": "proxy"
+      },
+      {
+        "rule_set": "rknasnblock",
+        "outbound": "proxy"
       }
     ],
     "rule_set": [
@@ -45,6 +59,12 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
         "tag": "ru-bundle",
         "format": "binary",
         "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "rknasnblock",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/rknasnblock.srs"
       }
     ]
   }
@@ -57,6 +77,10 @@ include: [itdoginfo-inside-russia](https://github.com/itdoginfo/allow-domains/) 
   
 ```shell
 proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
+```
+
+```shell
+proxy:86400s:https://github.com/legiz-ru/sb-rule-sets/raw/main/rknasnblock.srs
 ```
 
 </details>

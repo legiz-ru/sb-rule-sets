@@ -139,6 +139,7 @@
             "ru.mts.mtstv",
             "ru.mts.mymts",
             "ru.mvm.eldo",
+            "ru.sportmaster.app",
             "ru.myspar",
             "ru.nalog.rmr.client",
             "ru.nspk.mir.loyalty",
@@ -297,7 +298,9 @@
             "ru.x5.omni",
             "ru.tele2.mytele2",
             "by.advasoft.android.troika.app",
-            "com.octopod.russianpost.client.android"
+            "com.octopod.russianpost.client.android",
+            "ru.dahl.messenger",
+            "ru.dns.shop.android"
           ]
         }
       ]

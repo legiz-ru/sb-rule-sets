@@ -3,14 +3,33 @@
 <details>
   <summary>ru-bundle (sing-box v1.10+)</summary>
 
+for sing-box v1.14:
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-14-ru-bundle.json
+```
+
 for sing-box v1.11:
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-ru-bundle.json
 ```
 
 for sing-box v1.10:
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle_sb1-10.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-10-ru-bundle.json
+```
+
+</details>
+<details>
+  <summary>ru-bundle + oisd-big (sing-box v1.11+)</summary>
+
+for sing-box v1.14:
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-14-ru-bundle-oisd-big.json
+```
+
+for sing-box v1.11:
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-ru-bundle-oisd-big.json
 ```
 
 </details>
@@ -18,7 +37,7 @@ https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle
   <summary>ru-bundle + re-filter (sing-box v1.11+)</summary>
   
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle-refilter.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-ru-bundle-refilter.json
 ```
 
 </details>
@@ -26,7 +45,7 @@ https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/ru-bundle
   <summary>re-filter(sing-box v1.11+)</summary>
   
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/re-filter.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-re-filter.json
 ```
 
 </details>
@@ -38,17 +57,32 @@ https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/re-filter
 
   <br>
 
+for sing-box v1.14:
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-14-secret-sing-box.json
+```
+
 for sing-box v1.11:
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/secret-sing-box.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-secret-sing-box.json
 ```
 
 for sing-box v1.10:
 ```shell
-https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/secret-sing-box_sb1-10.json
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-10-secret-sing-box.json
 ```
 
 </details>
+<details>
+  <summary>secret-sing-box + Remnawave (sing-box v1.11+)</summary>
+
+```shell
+https://github.com/legiz-ru/sb-rule-sets/raw/main/.github/sub2sing-box/sb1-11-secret-sing-box-remnawave.json
+```
+
+</details>
+
+> `ru-bundle.json` and `ru-bundle-oisd-big.json` (unversioned, no `sb1-XX` prefix) are compatibility copies of the latest `sb1-14-*` templates, kept for external automation (e.g. [remnawave/templates](https://github.com/remnawave/templates/blob/main/.github/workflows/templates.yml)) that references these fixed paths. Use the versioned links above directly instead.
 
 [original templates by nitezs](https://github.com/nitezs/sub2sing-box/tree/master/templates)
 
